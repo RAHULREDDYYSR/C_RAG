@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+
 load_dotenv()
 from langchain_core.output_parsers import StrOutputParser
 
@@ -6,4 +7,5 @@ from graph.graph import app
 
 if __name__ == "__main__":
     print("===========C_RAG================")
-    print(app.invoke(input={"question": "what is agent memory"}))
+    result = app.invoke(input={"question": "what is MCP"})
+    print(result['generation'])

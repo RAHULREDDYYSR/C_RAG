@@ -2,10 +2,11 @@ from langchain_core.prompts import ChatPromptTemplate
 from pydantic import BaseModel, Field
 from langchain_openai import ChatOpenAI
 from langchain_google_genai import ChatGoogleGenerativeAI
+from langchain_groq import ChatGroq
 
-llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")  # gemini-2.5-pro-preview-03-25
-# llm = ChatOpenAI(temperature=0)
-
+#llm = ChatGoogleGenerativeAI(model="gemini-2.0-flash")  # gemini-2.5-pro-preview-03-25
+#llm = ChatOpenAI(model="gpt-4.1-nano")
+llm = ChatGroq(model="llama-3.1-8b-instant")
 
 class GradeDocuments(BaseModel):
     """Binary score for relevance check on retrieved documents."""

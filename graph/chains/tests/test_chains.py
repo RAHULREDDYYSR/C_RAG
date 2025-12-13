@@ -1,4 +1,5 @@
 from dotenv import load_dotenv
+
 load_dotenv()
 from graph.chains.retrieval_grader import GradeDocuments, retrieval_grader
 from ingestion import retriever
@@ -16,15 +17,12 @@ def test_retrival_grader_answer_yes() -> None:
     assert res.binary_score == "yes"
 
 
-def test_retrival_grade_answer_no() ->None:
+def test_retrival_grade_answer_no() -> None:
     question = "agent memory"
     docs = retriever.invoke(question)
     doc_text = docs[1].page_content
 
     res: GradeDocuments = retrieval_grader.invoke(
-        {"question":"how to make pancakes", "document":doc_text}
+        {"question": "how to make pancakes", "document": doc_text}
     )
     assert res.binary_score == "no"
-
-
-
